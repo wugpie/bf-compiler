@@ -10,13 +10,14 @@ pointer.Add(0);
 //위치 변수
 int loc = 0;
 
+
 if(input == string.Empty || input == null){
     Console.WriteLine("입력한 정보가 없습니다");
     Environment.Exit(0);
 }
 
-foreach (var x in input) {
-    switch(x){
+for(int i = 0; i < input.Length;i++){
+    switch(input[i]){
         case '+':
             pointer[loc] += 1;
             break;
@@ -32,6 +33,7 @@ foreach (var x in input) {
             break;
     }
 }
+
 
 //마지막 문자 오류 제거
 Console.Write(Environment.NewLine);
