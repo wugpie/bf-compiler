@@ -1,6 +1,13 @@
-﻿string? input = Console.ReadLine();
+﻿//input 받기
+string? input = Console.ReadLine();
 
-int[] pointer = [0];
+//가변 배열
+List<int> pointer = [];
+
+//초기 값 넣기
+pointer.Add(0);
+
+//위치 변수
 int loc = 0;
 
 if(input == string.Empty || input == null){
@@ -15,10 +22,16 @@ foreach (var x in input) {
             break;
         case '>':
             loc += 1;
-            // 값이 없는 경우엔 array 추가하기
+            if(pointer.Count < loc + 1) {pointer.Add(0);}
+            break;
+        case '<':
+            if(loc > 0){loc -= 1;}
             break;
         case '.':
-            Console.WriteLine(Convert.ToChar(pointer[loc]));
+            Console.Write(Convert.ToChar(pointer[loc]));
             break;
     }
 }
+
+//마지막 문자 오류 제거
+Console.Write(Environment.NewLine);
